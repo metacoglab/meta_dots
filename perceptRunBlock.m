@@ -15,7 +15,7 @@ x(1)= start_x;
 
 while nreversals < staircase_reversal && i_trial < ntrials
     i_trial = i_trial + 1 ;
-    n = p.stim.REF+(2*(rand>.5)-1)*x(i_trial); % either greater or less than standard, random
+    n = p.stim.REF+(2*(rand>.5)-1).*max(0,x(i_trial)); % either greater or less than standard, random  (staircase can go negative but only values >=0 are used, avoids boundary problem)
     n = round(n);
     n = max(1,n);
     n = min(n,2*p.stim.REF);    % bound by 1 and 2*REF
@@ -148,11 +148,11 @@ while nreversals < staircase_reversal && i_trial < ntrials
         results.correct(i_trial) = 0;
     end
     
-    % Update staircase
+    % Update staircase with unequal stepsizes (following Garcia-Perez 1998)
     x(i_trial+1)=x(i_trial);
     if i_trial>2
         if ~results.correct(i_trial)
-            x(i_trial+1)=x(i_trial)+stepsize;
+            x(i_trial+1)=x(i_trial)+(stepsize.*2);
         elseif results.correct(i_trial)==1 && results.correct(i_trial-1)==1
             x(i_trial+1)=x(i_trial)-stepsize;
         end
@@ -169,9 +169,7 @@ while nreversals < staircase_reversal && i_trial < ntrials
                 stepsize = 1;
             end
         end
-    end
-    x(i_trial+1) = max(1,x(i_trial+1)); % always have at least 1 dot difference
-    
+    end    
     
     if feedback
         if results.correct(i_trial)
