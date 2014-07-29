@@ -3,7 +3,7 @@ meta_dots
 
 Code for running a dot-density perceptual decision experiment + confidence ratings
 
-This code will run a dot-density perceptual decision experiment and collect confidence ratings. Performance is controlled online by a one-up two-down staircase procedure to ensure that sufficient number of correct/error trials for measuring metacognitive efficiency. Metacognitive efficiency can be measured by analysing the correspondence between accuracy and confidence, for instance with type 2 ROC analysis (using the AUROC2 code included), or meta-d' ( and github.com/smfleming/HMM). See Fleming & Lau (2014) How to measure metacognition for more details.
+This code will run a dot-density perceptual decision experiment and collect confidence ratings. Performance is controlled online by a one-up two-down staircase procedure to ensure a sufficient number of correct/error trials for measuring metacognitive efficiency. Metacognitive efficiency can be measured by analysing the correspondence between accuracy and confidence, for instance with type 2 ROC analysis (using the AUROC2 code included), or meta-d' ( and github.com/smfleming/HMM). See Fleming & Lau (2014) How to measure metacognition doi: 10.3389/fnhum.2014.00443 for more details.
 
 Running these scripts should be fairly simple. The first step is to ensure PsychToolbox is installed on the host machine; this can be done by following the instructions here: http://psychtoolbox.org/PsychtoolboxDownload
 
