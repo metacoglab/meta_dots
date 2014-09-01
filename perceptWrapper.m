@@ -31,42 +31,41 @@ Screen('Flip', p.frame.ptr);
 WaitSecs(2);
 WaitAnyPress(KbName('space'));
 
-% DrawText(p.frame.ptr,'Here are some example stimuli', 'c');
-% Screen('Flip', p.frame.ptr);
-% WaitSecs(1.0);
+DrawText(p.frame.ptr,'Here are some example stimuli', 'c');
+Screen('Flip', p.frame.ptr);
+WaitSecs(1.0);
 
-% n=[40 60];
-% drawDots(p, n);
-% DrawFormattedText(p.frame.ptr,'40 vs 60', 'center', p.my+p.stim.diam+50);
-% t=Screen('Flip', p.frame.ptr);
-% WaitSecs(3);
+n=[40 60];
+drawDots(p, n);
+DrawFormattedText(p.frame.ptr,'40 vs 60', 'center', p.my+p.stim.diam+50);
+t=Screen('Flip', p.frame.ptr);
+WaitSecs(3);
 
-% n=[50 30];
-% drawDots(p, n);
-% DrawFormattedText(p.frame.ptr,'50 vs 30', 'center', p.my+p.stim.diam+50);
-% t=Screen('Flip', p.frame.ptr);
-% WaitSecs(3);
+n=[50 30];
+drawDots(p, n);
+DrawFormattedText(p.frame.ptr,'50 vs 30', 'center', p.my+p.stim.diam+50);
+t=Screen('Flip', p.frame.ptr);
+WaitSecs(3);
 
-% n=[53 58];
-% drawDots(p, n);
-% DrawFormattedText(p.frame.ptr,'53 vs 58', 'center', p.my+p.stim.diam+50);
-% t=Screen('Flip', p.frame.ptr);
-% WaitSecs(3);
+n=[53 58];
+drawDots(p, n);
+DrawFormattedText(p.frame.ptr,'53 vs 58', 'center', p.my+p.stim.diam+50);
+t=Screen('Flip', p.frame.ptr);
+WaitSecs(3);
 
-% n=[35 25];
-% drawDots(p, n);
-% DrawFormattedText(p.frame.ptr,'35 vs 25', 'center', p.my+p.stim.diam+50);
-% t=Screen('Flip', p.frame.ptr);
-% WaitSecs(3);
+n=[35 25];
+drawDots(p, n);
+DrawFormattedText(p.frame.ptr,'35 vs 25', 'center', p.my+p.stim.diam+50);
+t=Screen('Flip', p.frame.ptr);
+WaitSecs(3);
 
 DrawText(p.frame.ptr,{'The first part of the task is to choose', ...
     'which circle contains the most points.',...
-    'We will next familiarise you with this part of the task.' , ...
-    'You pick the left option with the "a" key and', ...
-    'the right option with the "d" key.', ...
-    'Don''t worry if some of your decisions feel like guesses'...
-    '- it is a hard task!', ...
-    ' ','Press the space bar to continue'},'c');
+    ' ','We will next familiarise you with this part of the task.' , ...
+    'Press "a" to pick the left circle and "d" to pick the circle.', ...
+    ' ','Don''t worry if some of your decisions feel like guesses'...
+    ,'- it is a hard task!', ...
+    ' ',' ','Press the space bar to continue'},'c');
 Screen('Flip', p.frame.ptr);
 WaitSecs(2);
 WaitAnyPress(KbName('space'));
@@ -76,39 +75,39 @@ Screen('Flip', p.frame.ptr);
 WaitSecs(0.5);
 WaitAnyPress(KbName('space'));
 
-% Screen('FrameOval',p.frame.ptr,p.white,p.stim.rectL,p.stim.pen_width);
-% Screen('FrameOval',p.frame.ptr,p.white,p.stim.rectR,p.stim.pen_width);
-% t=Screen('Flip', p.frame.ptr);
+Screen('FrameOval',p.frame.ptr,p.white,p.stim.rectL,p.stim.pen_width);
+Screen('FrameOval',p.frame.ptr,p.white,p.stim.rectR,p.stim.pen_width);
+t=Screen('Flip', p.frame.ptr);
 
 %% Training on task, no confidence rating
 % put into function with arguments feedback, confidence,
 % converge or continuous
 
-% feedback = 1;
-% conf = 0;
-% ntrials = Inf;
-% staircase_reversal = 8;
-% stepsize = 4;
-% adapt  = 1;
-% start_x = round(.5*p.stim.REF); % start at REF+50%REF
-% results = perceptRunBlock(p, feedback, conf, ntrials, staircase_reversal, stepsize, adapt, start_x);
-% xc=median(results.contrast(results.i_trial_lastreversal:end)); % contrast at end of block
+feedback = 1;
+conf = 0;
+ntrials = Inf;
+staircase_reversal = 8;
+stepsize = 4;
+adapt  = 1;
+start_x = round(.5*p.stim.REF); % start at REF+50%REF
+results = perceptRunBlock(p, feedback, conf, ntrials, staircase_reversal, stepsize, adapt, start_x);
+xc=median(results.contrast(results.i_trial_lastreversal:end)); % contrast at end of block
 
 %% Training on task with confidence rating
-DrawFormattedText(p.frame.ptr, ['We will now give you some practice at using the confidence scale. /n', ...
-    'After you make a left/right choice, you will see a sliding /n',...
-    'scale to allow you to rate your confidence in getting /n', ...
-    'the right answer. /n', ...
-    'You can move the cursor around on the scale using the "a"/n', ...
-    'and "d" keys. The left end of the scale means /n', ...
-    'that you are less confident than normal, and the right end /n'...,
-    'of the scale means that you are more confident than normal. /n'...
-    'However, please remember that this is a difficult task /n', ...
-    '- it`s rare that you will be very confident! /n'...
-    'As we are interested in relative changes in confidence, /n', ...
-    'we encourage you to use the whole scale. /n' ...
-    'There won''t be any more feedback as to whether /n',...
-    'you are right or wrong! /n' ...
+DrawFormattedText(p.frame.ptr, ['We will now give you some practice at using the confidence scale. \n', ...
+    'After you make a left/right choice, you will see a sliding \n',...
+    'scale to allow you to rate your confidence in getting \n', ...
+    'the right answer. \n\n', ...
+    'You can move the cursor around on the scale using the "a"\n', ...
+    'and "d" keys. The left end of the scale means \n', ...
+    'that you are less confident than normal, and the right end \n'...,
+    'of the scale means that you are more confident than normal. \n\n'...
+    'However, please remember that this is a difficult task \n', ...
+    '- it`s rare that you will be very confident! \n'...
+    'As we are interested in relative changes in confidence, \n', ...
+    'we encourage you to use the whole scale. \n\n' ...
+    'There won''t be any more feedback as to whether \n',...
+    'you are right or wrong! \n\n' ...
     '(Press space bar to continue)'], 'center', 'center');
 Screen('Flip', p.frame.ptr);
 WaitSecs(0.5);
