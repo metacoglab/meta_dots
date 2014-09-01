@@ -29,33 +29,33 @@ Screen('Flip', p.frame.ptr);
 WaitSecs(2);
 WaitAnyPress(KbName('space'));
 
-DrawText(p.frame.ptr,'Here are some example stimuli', 'c');
-Screen('Flip', p.frame.ptr);
-WaitSecs(1.0);
+% DrawText(p.frame.ptr,'Here are some example stimuli', 'c');
+% Screen('Flip', p.frame.ptr);
+% WaitSecs(1.0);
 
-n=[40 60];
-drawDots(p, n);
-DrawFormattedText(p.frame.ptr,'40 vs 60', 'center', p.my+p.stim.diam+50);
-t=Screen('Flip', p.frame.ptr);
-WaitSecs(3);
+% n=[40 60];
+% drawDots(p, n);
+% DrawFormattedText(p.frame.ptr,'40 vs 60', 'center', p.my+p.stim.diam+50);
+% t=Screen('Flip', p.frame.ptr);
+% WaitSecs(3);
 
-n=[50 30];
-drawDots(p, n);
-DrawFormattedText(p.frame.ptr,'50 vs 30', 'center', p.my+p.stim.diam+50);
-t=Screen('Flip', p.frame.ptr);
-WaitSecs(3);
+% n=[50 30];
+% drawDots(p, n);
+% DrawFormattedText(p.frame.ptr,'50 vs 30', 'center', p.my+p.stim.diam+50);
+% t=Screen('Flip', p.frame.ptr);
+% WaitSecs(3);
 
-n=[53 58];
-drawDots(p, n);
-DrawFormattedText(p.frame.ptr,'53 vs 58', 'center', p.my+p.stim.diam+50);
-t=Screen('Flip', p.frame.ptr);
-WaitSecs(3);
+% n=[53 58];
+% drawDots(p, n);
+% DrawFormattedText(p.frame.ptr,'53 vs 58', 'center', p.my+p.stim.diam+50);
+% t=Screen('Flip', p.frame.ptr);
+% WaitSecs(3);
 
-n=[35 25];
-drawDots(p, n);
-DrawFormattedText(p.frame.ptr,'35 vs 25', 'center', p.my+p.stim.diam+50);
-t=Screen('Flip', p.frame.ptr);
-WaitSecs(3);
+% n=[35 25];
+% drawDots(p, n);
+% DrawFormattedText(p.frame.ptr,'35 vs 25', 'center', p.my+p.stim.diam+50);
+% t=Screen('Flip', p.frame.ptr);
+% WaitSecs(3);
 
 DrawText(p.frame.ptr,{'The first part of the task is to choose', 'which circle contains the most points.',...
     'We will next familiarise you with this part of the task.' , ...
