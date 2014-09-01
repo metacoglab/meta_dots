@@ -52,7 +52,7 @@ while nreversals < staircase_reversal && i_trial < ntrials
                 key = 1;
             elseif strcmp(KbName(keyCode),'d')
                 key = 2;
-            elseif strcmp(KbName(keyCode),'e')
+            elseif strcmp(KbName(keyCode),'q')
                 Screen('CloseAll')
                 return
             end
@@ -101,7 +101,7 @@ while nreversals < staircase_reversal && i_trial < ntrials
                 key = 1;
             elseif strcmp(KbName(keyCode),'d')
                 key = 2;
-            elseif strcmp(KbName(keyCode),'e')
+            elseif strcmp(KbName(keyCode),'q')
                 Screen('CloseAll')
                 return
             end
