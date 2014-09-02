@@ -36,7 +36,7 @@ while nreversals < staircase_reversal && i_trial < ntrials
     % Draw dots
     drawnXY = drawDots(p, n);
     DrawFormattedText(p.frame.ptr,'Which has more dots ? ', 'center',  p.my+p.stim.diam+50);
-    DrawFormattedText(p.frame.ptr,'[Left] ? [Right]', 'center',  p.my+p.stim.diam+100);
+    DrawFormattedText(p.frame.ptr,'["A"] ? ["D"]', 'center',  p.my+p.stim.diam+100);
     t=Screen('Flip', p.frame.ptr);
     
     % Check for keypress
@@ -60,7 +60,7 @@ while nreversals < staircase_reversal && i_trial < ntrials
             % Show confirmation of choice
             drawDots(p, n, drawnXY);
             DrawFormattedText(p.frame.ptr,'Which has more dots ? ', 'center',  p.my+p.stim.diam+50);
-            DrawFormattedText(p.frame.ptr,'[Left] ? [Right]', 'center',  p.my+p.stim.diam+100);
+            DrawFormattedText(p.frame.ptr,'["A"] ? ["D"]', 'center',  p.my+p.stim.diam+100);
             Screen('TextSize',p.frame.ptr,48);
             if key == 1
                 DrawFormattedText(p.frame.ptr,'*', p.stim.rectL(3)-p.stim.diam, p.my-p.stim.diam-50);
@@ -80,7 +80,7 @@ while nreversals < staircase_reversal && i_trial < ntrials
     Screen('FillRect', p.frame.ptr,p.white, p.stim.FixCrossL');
     Screen('FillRect', p.frame.ptr,p.white, p.stim.FixCrossR');
     DrawFormattedText(p.frame.ptr,'Which has more dots ? ', 'center',  p.my+p.stim.diam+50);
-    DrawFormattedText(p.frame.ptr,'[Left] ? [Right]', 'center',  p.my+p.stim.diam+100);
+    DrawFormattedText(p.frame.ptr,'["A"] ? ["D"]', 'center',  p.my+p.stim.diam+100);
     Screen('TextSize',p.frame.ptr,48);
     if trialComplete
         if key == 1
@@ -112,7 +112,7 @@ while nreversals < staircase_reversal && i_trial < ntrials
             Screen('FillRect', p.frame.ptr,p.white, p.stim.FixCrossL');
             Screen('FillRect', p.frame.ptr,p.white, p.stim.FixCrossR');
             DrawFormattedText(p.frame.ptr,'Which has more dots ? ', 'center',  p.my+p.stim.diam+50);
-            DrawFormattedText(p.frame.ptr,'[Left] ? [Right]', 'center',  p.my+p.stim.diam+100);
+            DrawFormattedText(p.frame.ptr,'["A"] ? ["D"]', 'center',  p.my+p.stim.diam+100);
             Screen('TextSize',p.frame.ptr,48);
             if key == 1
                 DrawFormattedText(p.frame.ptr,'*', p.stim.rectL(3)-p.stim.diam, p.my-p.stim.diam-50);
