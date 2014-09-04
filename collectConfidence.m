@@ -2,7 +2,7 @@ function [conf RT] = collectConfidence(window,p)
 
 curWindow = window;
 center = [p.mx p.my];
-keys = [KbName('LeftArrow') KbName('RightArrow');];
+keys = [KbName('a') KbName('d');];
 
 %% Initialise VAS scale
 VASwidth=p.stim.VASwidth_inPixels;

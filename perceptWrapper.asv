@@ -31,33 +31,33 @@ Screen('Flip', p.frame.ptr);
 WaitSecs(2);
 WaitAnyPress(KbName('space'));
 
-DrawText(p.frame.ptr,'Here are some example stimuli', 'c');
-Screen('Flip', p.frame.ptr);
-WaitSecs(1.0);
+% DrawText(p.frame.ptr,'Here are some example stimuli', 'c');
+% Screen('Flip', p.frame.ptr);
+% WaitSecs(1.0);
 
-n=[40 60];
-drawDots(p, n);
-DrawFormattedText(p.frame.ptr,'40 vs 60', 'center', p.my+p.stim.diam+50);
-t=Screen('Flip', p.frame.ptr);
-WaitSecs(3);
+% n=[40 60];
+% drawDots(p, n);
+% DrawFormattedText(p.frame.ptr,'40 vs 60', 'center', p.my+p.stim.diam+50);
+% t=Screen('Flip', p.frame.ptr);
+% WaitSecs(3);
 
-n=[50 30];
-drawDots(p, n);
-DrawFormattedText(p.frame.ptr,'50 vs 30', 'center', p.my+p.stim.diam+50);
-t=Screen('Flip', p.frame.ptr);
-WaitSecs(3);
+% n=[50 30];
+% drawDots(p, n);
+% DrawFormattedText(p.frame.ptr,'50 vs 30', 'center', p.my+p.stim.diam+50);
+% t=Screen('Flip', p.frame.ptr);
+% WaitSecs(3);
 
-n=[53 58];
-drawDots(p, n);
-DrawFormattedText(p.frame.ptr,'53 vs 58', 'center', p.my+p.stim.diam+50);
-t=Screen('Flip', p.frame.ptr);
-WaitSecs(3);
+% n=[53 58];
+% drawDots(p, n);
+% DrawFormattedText(p.frame.ptr,'53 vs 58', 'center', p.my+p.stim.diam+50);
+% t=Screen('Flip', p.frame.ptr);
+% WaitSecs(3);
 
-n=[35 25];
-drawDots(p, n);
-DrawFormattedText(p.frame.ptr,'35 vs 25', 'center', p.my+p.stim.diam+50);
-t=Screen('Flip', p.frame.ptr);
-WaitSecs(3);
+% n=[35 25];
+% drawDots(p, n);
+% DrawFormattedText(p.frame.ptr,'35 vs 25', 'center', p.my+p.stim.diam+50);
+% t=Screen('Flip', p.frame.ptr);
+% WaitSecs(3);
 
 DrawText(p.frame.ptr,{'The first part of the task is to choose', ...
     'which circle contains the most points.',...
@@ -75,20 +75,20 @@ Screen('Flip', p.frame.ptr);
 WaitSecs(0.5);
 WaitAnyPress(KbName('space'));
 
-Screen('FrameOval',p.frame.ptr,p.white,p.stim.rectL,p.stim.pen_width);
-Screen('FrameOval',p.frame.ptr,p.white,p.stim.rectR,p.stim.pen_width);
-t=Screen('Flip', p.frame.ptr);
+% Screen('FrameOval',p.frame.ptr,p.white,p.stim.rectL,p.stim.pen_width);
+% Screen('FrameOval',p.frame.ptr,p.white,p.stim.rectR,p.stim.pen_width);
+% t=Screen('Flip', p.frame.ptr);
 
 %% Training on task, no confidence rating
 % put into function with arguments feedback, confidence,
 % converge or continuous
 
-feedback = 1;
-conf = 0;
-ntrials = Inf;
-staircase_reversal = 8;
-stepsize = 4;
-adapt  = 1;
+% feedback = 1;
+% conf = 0;
+% ntrials = Inf;
+% staircase_reversal = 8;
+% stepsize = 4;
+% adapt  = 1;
 start_x = round(.5*p.stim.REF); % start at REF+50%REF
 results = perceptRunBlock(p, feedback, conf, ntrials, staircase_reversal, stepsize, adapt, start_x);
 xc=median(results.contrast(results.i_trial_lastreversal:end)); % contrast at end of block
@@ -123,8 +123,7 @@ adapt = 0;
 results = perceptRunBlock(p, feedback, conf, ntrials, staircase_reversal, stepsize, adapt, start_x);
 
 %% Main task blocks (8 blocks of 25 trials)
-DrawFormattedText(p.frame.ptr, ['We will now ask you to do 8 blocks of 25 trials each, \n',...
-    'just like in the practice \n\n' ...
+DrawFormattedText(p.frame.ptr, ['We will now ask you to do 8 blocks of 25 trials each, just like in the practice \n\n' ...
     'If you have any questions, please ask the experimenter now! \n\n' ...
     'Otherwise please press the space bar to start...'], 'center', 'center');
 Screen('Flip', p.frame.ptr);
