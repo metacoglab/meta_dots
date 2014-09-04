@@ -1,4 +1,11 @@
 % Code for AUROC blockwise analysis
+
+% loop solution
+% for i=1:8
+% type2roc(DATA(i).results.correct, DATA(i).results.responseConf, 6)
+% end
+
+% Ugly, clunky version
 fprintf('Block 1')
 type2roc(DATA(1).results.correct, DATA(1).results.responseConf, 6)
 fprintf('Block 2')
