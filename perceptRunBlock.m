@@ -12,6 +12,7 @@ function results = perceptRunBlock(p, feedback, conf, ntrials, staircase_reversa
 i_trial = 0;
 nreversals = 0;
 x(1)= start_x;
+results.S = SetupStaircase(1, start_x, [-Inf Inf], [2,1]);
 
 while nreversals < staircase_reversal && i_trial < ntrials
     i_trial = i_trial + 1 ;
@@ -148,28 +149,46 @@ while nreversals < staircase_reversal && i_trial < ntrials
         results.correct(i_trial) = 0;
     end
     
-    % Update staircase with unequal stepsizes (following Garcia-Perez 1998)
-    x(i_trial+1)=x(i_trial);
-    if i_trial>2
-        if ~results.correct(i_trial)
-            x(i_trial+1)=x(i_trial)+(stepsize.*2);
-        elseif results.correct(i_trial)==1 && results.correct(i_trial-1)==1
-            x(i_trial+1)=x(i_trial)-stepsize;
+    % Update staircase
+    results.S=StaircaseTrial(1, results.S, results.correct(i_trial));
+    [results.S, IsReversal] = UpdateStaircase(1, results.S, -stepsize);
+    x(i_trial+1) = results.S.Signal;
+    if IsReversal == 1
+        nreversals = nreversals + 1;
+        results.i_trial_lastreversal = i_trial;
+    end
+    
+    if adapt
+        % Adapt stepsize
+        if nreversals == 4
+            stepsize = 2;
+        elseif nreversals == 8
+            stepsize = 1;
         end
-        if results.correct(i_trial) ~=  results.correct(i_trial-1)
-            nreversals=nreversals+1;
-            results.i_trial_lastreversal = i_trial;
-        end
-        
-        if adapt
-            % Adapt stepsize
-            if nreversals == 4
-                stepsize = 2;
-            elseif nreversals == 8
-                stepsize = 1;
-            end
-        end
-    end    
+    end
+    
+    %     % Update staircase with unequal stepsizes (following Garcia-Perez 1998)
+    %     x(i_trial+1)=x(i_trial);
+    %     if i_trial>2
+    %         if ~results.correct(i_trial)
+    %             x(i_trial+1)=x(i_trial)+(stepsize.*2);
+    %         elseif results.correct(i_trial)==1 && results.correct(i_trial-1)==1
+    %             x(i_trial+1)=x(i_trial)-stepsize;
+    %         end
+    %         if results.correct(i_trial) ~=  results.correct(i_trial-1)
+    %             nreversals=nreversals+1;
+    %             results.i_trial_lastreversal = i_trial;
+    %         end
+    %
+    %         if adapt
+    %             % Adapt stepsize
+    %             if nreversals == 4
+    %                 stepsize = 2;
+    %             elseif nreversals == 8
+    %                 stepsize = 1;
+    %             end
+    %         end
+    %     end
     
     if feedback
         if results.correct(i_trial)
