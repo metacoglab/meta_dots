@@ -46,11 +46,11 @@ while nreversals < staircase_reversal && i_trial < ntrials
     secs = start_secs;
     while ~trialComplete & (secs - start_secs) < p.times.dots
         [k respTime keyCode] = KbCheck();
-        if strcmp(KbName(keyCode),'a') | strcmp(KbName(keyCode),'d')
+        if strcmp(KbName(keyCode),'a') | strcmp(KbName(keyCode),'D')
             trialComplete = true;
-            if strcmp(KbName(keyCode),'a')
+            if strcmp(KbName(keyCode),'A')
                 key = 1;
-            elseif strcmp(KbName(keyCode),'d')
+            elseif strcmp(KbName(keyCode),'D')
                 key = 2;
             elseif strcmp(KbName(keyCode),'ESCAPE')
                 Screen('CloseAll')
