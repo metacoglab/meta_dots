@@ -16,4 +16,4 @@ Then:
 
 In the first phase, example stimuli are shown with text below the circles indicating the number of dots in each circle (e.g., “40 vs. 60”). In the second phase there are a series of dot judgments without confidence ratings. This phase familiarizes participants with the task and also titrates a subject-specific level of difficulty by initiating the staircase procedure. The last phase consists of 10 practice trials that simulate the main task so that participants become familiar with indicating their confidence.
 
-Any questions, comments or bugs please email sf102@nyu.edu
+Any questions, comments or bugs please email stephen.fleming@ucl.ac.uk
