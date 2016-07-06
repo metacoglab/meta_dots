@@ -26,8 +26,8 @@ p.filename = [dataDir p.filename];
 
 p.sittingDist = 40;
 p.BackgroundColor = 0;
-% p.windowsize =  []; % empty for full screen
-p.windowsize = [1000 800];
+p.windowsize =  []; % empty for full screen
+% p.windowsize = [1000 800];
 p.frame = OpenDisplay(p.windowsize,p.BackgroundColor);
 t=Screen('Flip', p.frame.ptr); 
 % Size of the display
