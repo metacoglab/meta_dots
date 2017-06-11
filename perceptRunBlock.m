@@ -133,9 +133,14 @@ while nreversals < staircase_reversal && i_trial < ntrials
     
     if conf
         % now collect confidence
-        [conf RT] = collectConfidence(p.frame.ptr,p);
+        switch p.stim.scaleType
+            case 'continuous'
+                [confidence RT] = collectConfidence(p.frame.ptr,p);
+            case 'discrete'
+                [confidence RT] = collectConfidenceDiscrete(p.frame.ptr, p);
+        end
         
-        results.responseConf(i_trial) = conf;
+        results.responseConf(i_trial) = confidence;
         results.rtConf(i_trial) = RT;
     end
     
@@ -199,9 +204,6 @@ while nreversals < staircase_reversal && i_trial < ntrials
         Screen('Flip', p.frame.ptr);
         WaitSecs(p.times.feedback);
     end
-    
-    %     Screen('Flip', p.frame.ptr);
-    %     WaitSecs(p.times.ITI+rand);
     
 end
 results.contrast = x;

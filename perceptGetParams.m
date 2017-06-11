@@ -27,7 +27,7 @@ p.filename = [dataDir p.filename];
 p.sittingDist = 40;
 p.BackgroundColor = 0;
 p.windowsize =  []; % empty for full screen
-% p.windowsize = [1000 800];
+% p.windowsize = [800 600];
 p.frame = OpenDisplay(p.windowsize,p.BackgroundColor);
 t=Screen('Flip', p.frame.ptr); 
 % Size of the display
@@ -66,7 +66,8 @@ p.stim.REF = 50;
 p.stim.dotsize = 0.03; 
 
 % confidence scale
-p.stim.VASwidth_inDegrees = 20;
+p.stim.scaleType = 'discrete'; % discrete or continuous
+p.stim.VASwidth_inDegrees = 15;
 p.stim.VASheight_inDegrees = 2;
 p.stim.VASoffset_inDegrees = 0;
 p.stim.arrowWidth_inDegrees = 0.5;
@@ -81,7 +82,7 @@ p.stim.arrowWidth_inPixels = degrees2pixels(p.stim.arrowWidth_inDegrees, p.sitti
 p.times.fix = 1;
 p.times.dots = 0.7;
 p.times.postChoice = 0.5;
-p.times.confDuration_inSecs = 3;
+p.times.confDuration_inSecs = 4;
 p.times.confFBDuration_inSecs = 0.5;
 p.times.feedback = 2;
-p.times.ITI = 0.5;
+p.times.ITI = 1;
