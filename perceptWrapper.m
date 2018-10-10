@@ -128,7 +128,7 @@ adapt = 0;
 for b = 1:nblocks
     start_x = xc;
     results = perceptRunBlock(p, feedback, conf, ntrials, staircase_reversal, stepsize, adapt, start_x);
-    xc=median(results.contrast(results.i_trial_lastreversal:end)); % contrast at end of block
+    xc=round(median(results.contrast(results.i_trial_lastreversal:end))); % contrast at end of block
     DrawFormattedText(p.frame.ptr, ['Take a break! \n\n' ...
         'Please press the space bar to start the next block when you are ready...'], 'center', 'center');
     Screen('Flip', p.frame.ptr);
